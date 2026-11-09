@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light" />
-<meta name="description" content="Portfolio of Lovely Kumari, Data Analyst — Power BI dashboards and automated reports in Python, SQL, and Tableau." />
+<meta name="description" content="Portfolio of Lovely Kumari, Data Analyst — Power BI dashboards and automated reports in Python, SQL, and Tableau. Based in Jersey City, NJ. Authorized to work in the U.S. on F-1 OPT (EAD)." />
 <link rel="icon" href="data:," />
 <title>Lovely Kumari — Data Analyst Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,11 +42,19 @@
 
   .wrap{max-width:920px; margin:0 auto; padding:0 20px 56px}
 
-  /* Top rule */
+  /* Top rule + nav */
   .top-rule{height:4px; background:var(--accent)}
+  nav{
+    display:flex; flex-wrap:wrap; gap:6px 18px; align-items:center; justify-content:space-between;
+    padding:14px 0 0; font-size:0.9rem;
+  }
+  nav .nav-links{display:flex; flex-wrap:wrap; gap:4px 16px}
+  nav a{color:var(--ink-2); text-decoration:none; font-weight:500}
+  nav a:hover{color:var(--accent-dark); text-decoration:underline}
+  nav .nav-resume{font-weight:600; color:var(--accent-dark)}
 
   /* Header */
-  header{padding:44px 0 28px}
+  header{padding:36px 0 28px}
   .header-top{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:20px}
   .name-block{min-width:0}
   h1{
@@ -66,6 +74,8 @@
     letter-spacing:0.01em;
   }
   .role span{color:var(--muted); font-weight:400}
+  .target{margin:8px 0 0; font-size:1rem; color:var(--ink-2)}
+  .target strong{color:var(--ink)}
   .availability{
     flex-shrink:0;
     margin-top:6px;
@@ -79,8 +89,18 @@
   }
   .dot{width:8px;height:8px;border-radius:50%;background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft); flex-shrink:0}
 
+  .hero-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px}
+  .btn{
+    display:inline-flex; align-items:center; gap:7px;
+    padding:11px 18px; border-radius:999px; font-size:0.92rem; font-weight:600; text-decoration:none; line-height:1;
+  }
+  .btn-dark{background:var(--accent-dark); color:#fff; border:1px solid var(--accent-dark)}
+  .btn-dark:hover{background:var(--accent); color:#fff}
+  .btn-outline{background:var(--surface); color:var(--accent-dark); border:1px solid var(--line-strong)}
+  .btn-outline:hover{border-color:var(--accent); color:var(--accent)}
+
   .contact-bar{
-    margin-top:26px;
+    margin-top:22px;
     background:var(--surface);
     border:1px solid var(--line);
     border-radius:12px;
@@ -116,13 +136,9 @@
   .fact-card .big{font-family:"IBM Plex Serif", serif; font-size:1.35rem; line-height:1.25; margin:6px 0 0; font-weight:500}
   .fact-card .small{font-size:0.9rem; line-height:1.55; color:#cfe6de; margin:8px 0 0}
   .fact-actions{display:flex; gap:10px; flex-wrap:wrap}
-  .btn{
-    display:inline-flex; align-items:center; gap:7px;
-    padding:9px 14px; border-radius:999px; font-size:0.88rem; font-weight:600; text-decoration:none; line-height:1;
-  }
-  .btn-light{background:#fff; color:var(--accent-dark); border:1px solid #fff}
+  .btn-light{background:#fff; color:var(--accent-dark); border:1px solid #fff; display:inline-flex; align-items:center; gap:7px; padding:9px 14px; border-radius:999px; font-size:0.88rem; font-weight:600; text-decoration:none; line-height:1}
   .btn-light:hover{background:var(--accent-soft); color:var(--accent-dark)}
-  .btn-ghost{background:transparent; color:#fff; border:1px solid rgba(255,255,255,.45)}
+  .btn-ghost{background:transparent; color:#fff; border:1px solid rgba(255,255,255,.45); display:inline-flex; align-items:center; gap:7px; padding:9px 14px; border-radius:999px; font-size:0.88rem; font-weight:600; text-decoration:none; line-height:1}
   .btn-ghost:hover{background:rgba(255,255,255,.1); color:#fff}
 
   /* Sections */
@@ -137,6 +153,9 @@
 
   /* Skills */
   .skills-card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px}
+  .skill-group{margin-bottom:14px}
+  .skill-group:last-child{margin-bottom:0}
+  .skill-group h3{margin:0 0 8px; font-family:"IBM Plex Mono", monospace; font-size:0.72rem; letter-spacing:0.13em; text-transform:uppercase; color:var(--muted); font-weight:500}
   .skills-grid{display:flex; flex-wrap:wrap; gap:9px}
   .skill{
     display:inline-flex; align-items:center; gap:7px;
@@ -145,28 +164,54 @@
   }
   .skill.primary{background:var(--accent-soft); border-color:#c8ddd6; color:var(--accent-dark); font-weight:600}
   .skill .mono{font-family:"IBM Plex Mono", monospace; font-size:0.78rem; color:var(--muted); font-weight:400}
-  .skills-note{margin:14px 2px 0; font-size:0.9rem; color:var(--muted); line-height:1.55}
-  .skills-note strong{color:var(--ink-2)}
 
-  /* Projects */
-  .projects{display:grid; grid-template-columns:1fr; gap:14px}
-  @media(min-width:760px){ .projects{grid-template-columns:1fr 1fr 1fr} }
-  .project{
+  /* Project case studies */
+  .cases{display:grid; grid-template-columns:1fr; gap:16px}
+  .case{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px; position:relative; overflow:hidden;
+  }
+  .case::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--accent); opacity:0.9}
+  .case-head{display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 16px; align-items:baseline}
+  .case-num{font-family:"IBM Plex Mono", monospace; font-size:0.75rem; letter-spacing:0.12em; color:var(--accent); font-weight:600}
+  .case h3{margin:6px 0 0; font-size:1.18rem; line-height:1.3; font-weight:600; color:var(--ink)}
+  .case .question{margin:8px 0 0; font-size:1rem; line-height:1.55; color:var(--ink-2)}
+  .case .question strong{color:var(--ink)}
+  .kpis{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+  .kpi{background:var(--accent-soft-2); border:1px solid var(--line); border-radius:10px; padding:10px 14px}
+  .kpi b{display:block; font-family:"IBM Plex Serif", serif; font-size:1.25rem; line-height:1.1; color:var(--ink)}
+  .kpi span{display:block; margin-top:3px; font-size:0.82rem; line-height:1.35; color:var(--muted)}
+  .case .data{margin:12px 0 0; font-size:0.9rem; color:var(--muted); line-height:1.55}
+  .case .data strong{color:var(--ink-2)}
+  .tools{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px}
+  .tool{font-family:"IBM Plex Mono", monospace; font-size:0.72rem; letter-spacing:0.02em; background:#f1f4f1; border:1px solid var(--line); padding:4px 7px; border-radius:999px; color:var(--ink-2)}
+  .rec{margin:12px 0 0; font-size:0.93rem; line-height:1.6; color:var(--ink-2); background:var(--accent-soft-2); border-left:3px solid var(--accent); border-radius:0 8px 8px 0; padding:10px 12px}
+  .rec strong{color:var(--accent-dark)}
+  .case-links{margin-top:14px; display:flex; flex-wrap:wrap; gap:8px 18px; align-items:center}
+  .case-links a{font-size:0.92rem; font-weight:600; text-decoration:none; color:var(--accent-dark)}
+  .case-links a:hover{text-decoration:underline}
+
+  /* Compare table */
+  .table-card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow-x:auto}
+  table{border-collapse:collapse; width:100%; min-width:640px; font-size:0.9rem}
+  th,td{text-align:left; padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top; line-height:1.45}
+  tr:last-child th, tr:last-child td{border-bottom:0}
+  th{font-family:"IBM Plex Mono", monospace; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); font-weight:500; background:var(--accent-soft-2)}
+  td strong{color:var(--ink)}
+  td .mono{font-family:"IBM Plex Mono", monospace; font-size:0.78rem; color:var(--muted)}
+
+  /* Flagship JEEVIKA */
+  .flag-grid{display:grid; grid-template-columns:1fr; gap:14px}
+  @media(min-width:760px){ .flag-grid{grid-template-columns:1fr 1fr 1fr} }
+  .flag{
     background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
     padding:20px; display:flex; flex-direction:column; gap:10px;
-    position:relative; overflow:hidden;
   }
-  .project::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--accent); opacity:0.9}
-  .project-num{font-family:"IBM Plex Mono", monospace; font-size:0.75rem; letter-spacing:0.12em; color:var(--accent); font-weight:600}
-  .project h3{margin:0; font-size:1.05rem; line-height:1.3; font-weight:600; color:var(--ink)}
-  .project h3 span{display:block; font-size:0.86rem; font-weight:500; color:var(--muted); margin-top:3px}
-  .tools{display:flex; flex-wrap:wrap; gap:6px; margin-top:2px}
-  .tool{font-family:"IBM Plex Mono", monospace; font-size:0.72rem; letter-spacing:0.02em; background:#f1f4f1; border:1px solid var(--line); padding:4px 7px; border-radius:999px; color:var(--ink-2)}
-  .project p{margin:0; font-size:0.93rem; line-height:1.6; color:var(--muted)}
-  .project p strong{color:var(--ink-2)}
-  .project-link{margin-top:auto; padding-top:6px; display:inline-flex; align-items:center; gap:6px; font-size:0.9rem; font-weight:600; color:var(--accent-dark); text-decoration:none}
-  .project-link:hover{color:var(--accent); text-decoration:underline; text-underline-offset:3px}
-  .project-link .arrow{font-size:0.85rem; line-height:1}
+  .flag-num{font-family:"IBM Plex Mono", monospace; font-size:0.75rem; letter-spacing:0.12em; color:var(--accent); font-weight:600}
+  .flag h3{margin:0; font-size:1.05rem; line-height:1.3; font-weight:600; color:var(--ink)}
+  .flag p{margin:0; font-size:0.93rem; line-height:1.6; color:var(--muted)}
+  .flag p strong{color:var(--ink-2)}
+  .flag .rec{margin-top:auto}
 
   /* Experience */
   .exp-card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden}
@@ -229,7 +274,7 @@
     header{padding-top:30px}
     .contact-bar{padding:12px 14px}
     .contact-item{white-space:normal}
-    .about-card,.fact-card,.exp-main,.edu-main,.edu-side{padding:18px}
+    .about-card,.fact-card,.exp-main,.edu-main,.edu-side,.case{padding:18px}
     .stats{margin-left:-18px; margin-right:-18px}
     .exp-other > div{padding:14px 18px}
     footer{padding:20px 18px}
@@ -248,13 +293,32 @@
 <div class="top-rule" aria-hidden="true"></div>
 <div class="wrap">
 
+  <nav aria-label="Sections">
+    <div class="nav-links">
+      <a href="#projects-h">Projects</a>
+      <a href="#experience-h">Experience</a>
+      <a href="#education-h">Education</a>
+      <a href="https://github.com/CodeWithLuma" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/lovely-kumari-b23740102" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <a class="nav-resume" href="resume.html">My resume ↓</a>
+  </nav>
+
   <header>
     <div class="header-top">
       <div class="name-block">
         <h1>Lovely Kumari</h1>
         <p class="role">Data Analyst <span>— Power BI · Python · SQL · Tableau</span></p>
+        <p class="target">Looking for entry-level <strong>Data Analyst &amp; BI Analyst</strong> roles — <strong>New Jersey · New York City · Remote</strong></p>
       </div>
       <div class="availability"><span class="dot" aria-hidden="true"></span> Authorized to work in the U.S. on F-1 OPT (EAD)</div>
+    </div>
+
+    <div class="hero-actions">
+      <a class="btn btn-dark" href="resume.html">Download my resume ↓</a>
+      <a class="btn btn-outline" href="https://github.com/CodeWithLuma" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/lovely-kumari-b23740102" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn-outline" href="mailto:lovelyheliwal27@gmail.com">Email me</a>
     </div>
 
     <div class="contact-bar" aria-label="Contact information">
@@ -282,7 +346,7 @@
     <div class="intro">
       <div class="about-card">
         <p>Data Analyst with <strong>3 years at JEEVIKA</strong>; M.S. in Computer and Information Systems from <strong>Rider University (GPA 3.9/4)</strong>. I build Power BI dashboards and automated reports in Python, SQL, and Tableau that turn program data into clear decisions for managers and field teams.</p>
-        <p>Authorized to work in the U.S. immediately on F-1 OPT (EAD).</p>
+        <p>That work was done with real field data, collected in villages, reported by people who are not technical — so I learned to clean messy data, check it twice, and explain what it means in plain words. That is the part of the job I like most.</p>
       </div>
       <div class="fact-card">
         <div>
@@ -291,8 +355,8 @@
           <p class="small">Power BI dashboards at JEEVIKA — loan defaults down 15%; malnutrition down 25% for 10,000+ beneficiaries.</p>
         </div>
         <div class="fact-actions">
-          <a class="btn btn-light" href="mailto:lovelyheliwal27@gmail.com">Email me</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/lovely-kumari-b23740102" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn-light" href="resume.html">My resume ↓</a>
+          <a class="btn-ghost" href="https://github.com/CodeWithLuma" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
       </div>
     </div>
@@ -303,19 +367,35 @@
     <section aria-labelledby="skills-h">
       <div class="section-head">
         <h2 id="skills-h">Skills</h2>
-        <p>Python · SQL · Power BI · Tableau</p>
+        <p>Only tools I use in the projects below</p>
       </div>
       <div class="skills-card">
-        <div class="skills-grid">
-          <span class="skill primary">Python <span class="mono">pandas · NumPy</span></span>
-          <span class="skill primary">SQL</span>
-          <span class="skill primary">Power BI</span>
-          <span class="skill primary">Tableau</span>
-          <span class="skill">Advanced Excel</span>
-          <span class="skill">ETL</span>
-          <span class="skill">SPSS</span>
-          <span class="skill">Data cleaning</span>
-          <span class="skill">Dashboard design</span>
+        <div class="skill-group">
+          <h3>Languages &amp; querying</h3>
+          <div class="skills-grid">
+            <span class="skill primary">Python <span class="mono">pandas · NumPy</span></span>
+            <span class="skill primary">SQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>BI &amp; reporting</h3>
+          <div class="skills-grid">
+            <span class="skill primary">Power BI</span>
+            <span class="skill primary">Tableau</span>
+            <span class="skill">Advanced Excel</span>
+            <span class="skill">Dashboard design</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Methods</h3>
+          <div class="skills-grid">
+            <span class="skill">ETL</span>
+            <span class="skill">Data cleaning</span>
+            <span class="skill">Data mining</span>
+            <span class="skill">Risk management</span>
+            <span class="skill">Statistical analysis</span>
+            <span class="skill">SPSS</span>
+          </div>
         </div>
       </div>
     </section>
@@ -324,28 +404,140 @@
     <section aria-labelledby="projects-h">
       <div class="section-head">
         <h2 id="projects-h">Projects</h2>
-        <p>Selected work</p>
+        <p>Five case studies — each one answers a real question</p>
       </div>
-      <div class="projects">
-        <article class="project">
-          <div class="project-num">01 — JEEVIKA</div>
+      <div class="cases">
+
+        <article class="case">
+          <div class="case-head"><span class="case-num">01 — CHURN</span><span class="case-num">PYTHON · SQL</span></div>
+          <h3>Why do telecom customers leave?</h3>
+          <p class="question">A telecom company loses customers every month. <strong>I wanted to know who leaves, and when — so the company can act before they go.</strong></p>
+          <div class="kpis">
+            <div class="kpi"><b>26.5%</b><span>of 7,043 customers churned</span></div>
+            <div class="kpi"><b>42.7%</b><span>churn on month-to-month contracts</span></div>
+            <div class="kpi"><b>2.8%</b><span>churn on two-year contracts</span></div>
+          </div>
+          <p class="data"><strong>Data:</strong> IBM Telco Customer Churn dataset, public on Kaggle — 7,043 customers. IBM made this dataset for teaching, so it may not reflect any real telecom's customers.</p>
+          <div class="tools"><span class="tool">Python</span><span class="tool">pandas</span><span class="tool">SQL</span></div>
+          <p class="rec"><strong>What I'd recommend:</strong> offer a retention deal to month-to-month customers on fiber optic in their first 12 months — that group leaves at 51.4%, the highest rate in the data.</p>
+          <div class="case-links"><a href="https://github.com/CodeWithLuma/telco-customer-churn-analysis" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+        </article>
+
+        <article class="case">
+          <div class="case-head"><span class="case-num">02 — TAXI DEMAND</span><span class="case-num">PYTHON · SQL</span></div>
+          <h3>When are yellow taxis busiest in New York, and what does a ride cost?</h3>
+          <p class="question">I live next to New York City. <strong>I wanted to see when yellow taxis are busiest here, and what a ride actually costs.</strong></p>
+          <div class="kpis">
+            <div class="kpi"><b>41.1M</b><span>yellow-taxi trips in 2024</span></div>
+            <div class="kpi"><b>$966M</b><span>farebox revenue in 2024</span></div>
+            <div class="kpi"><b>+19%</b><span>trips vs 2023</span></div>
+          </div>
+          <p class="data"><strong>Data:</strong> NYC Taxi &amp; Limousine Commission Trip Record Data — official monthly files. 2024 totals from the TLC Annual Report; trip-level detail from August 2024 (859,762 clean trips after cleaning a 1M-row sample).</p>
+          <div class="tools"><span class="tool">Python</span><span class="tool">pandas</span><span class="tool">SQL</span></div>
+          <p class="rec"><strong>What I'd recommend:</strong> short within-Manhattan trips are the volume — $14.41 for 2.16 miles on average. Drivers earn most by staying in Manhattan, where Midtown Center alone had 44,892 pickups in one month.</p>
+          <div class="case-links"><a href="https://github.com/CodeWithLuma/nyc-yellow-taxi-analysis" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+        </article>
+
+        <article class="case">
+          <div class="case-head"><span class="case-num">03 — FRAUD</span><span class="case-num">PYTHON · SCIKIT-LEARN · SQL</span></div>
+          <h3>How do you spot fraud in 0.17% of transactions?</h3>
+          <p class="question">Only 492 out of 284,807 transactions were fraud. <strong>That is the whole problem — a model that guesses "not fraud" every time scores 99.83% and catches nothing.</strong></p>
+          <div class="kpis">
+            <div class="kpi"><b>492</b><span>frauds in 284,807 transactions</span></div>
+            <div class="kpi"><b>0.172%</b><span>fraud rate — about 1 in 579</span></div>
+            <div class="kpi"><b>0.838</b><span>average precision, random forest (published run)</span></div>
+          </div>
+          <p class="data"><strong>Data:</strong> Worldline / Université Libre de Bruxelles credit card dataset, via Kaggle — European cardholders, September 2013, two days. Features V1–V28 are anonymised, so no real customer behaviour can be read from them.</p>
+          <div class="tools"><span class="tool">Python</span><span class="tool">scikit-learn</span><span class="tool">SQL</span></div>
+          <p class="rec"><strong>What I'd recommend:</strong> judge fraud models on precision and recall, never on accuracy. On data this imbalanced, accuracy is a trap.</p>
+          <div class="case-links"><a href="https://github.com/CodeWithLuma/credit-card-fraud-analysis" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+        </article>
+
+        <article class="case">
+          <div class="case-head"><span class="case-num">04 — ATTRITION</span><span class="case-num">PYTHON · SQL</span></div>
+          <h3>Why do employees leave?</h3>
+          <p class="question">237 out of 1,470 employees left. <strong>I wanted to know who they were — and whether the company was losing its best people.</strong></p>
+          <div class="kpis">
+            <div class="kpi"><b>16.1%</b><span>attrition — 237 of 1,470 left</span></div>
+            <div class="kpi"><b>$4,787</b><span>leavers' monthly income</span></div>
+            <div class="kpi"><b>$6,832</b><span>stayers' monthly income</span></div>
+          </div>
+          <p class="data"><strong>Data:</strong> IBM HR Analytics Employee Attrition dataset, via Kaggle — simulated data made by IBM for teaching, not a real company's workforce.</p>
+          <div class="tools"><span class="tool">Python</span><span class="tool">pandas</span><span class="tool">SQL</span></div>
+          <p class="rec"><strong>What I'd recommend:</strong> look at pay first — the people who left earned far less. And it is not a performance problem: attrition was 16.4% even among Outstanding performers.</p>
+          <div class="case-links"><a href="https://github.com/CodeWithLuma/hr-attrition-analysis" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+        </article>
+
+        <article class="case">
+          <div class="case-head"><span class="case-num">05 — PRICING</span><span class="case-num">PYTHON · SQL</span></div>
+          <h3>What sets the price of a night in New York?</h3>
+          <p class="question">I live next to New York City. <strong>I wanted to know what sets the price of a night here — the borough, the room, or something else.</strong></p>
+          <div class="kpis">
+            <div class="kpi"><b>$149</b><span>median night, Manhattan</span></div>
+            <div class="kpi"><b>$65</b><span>median night, the Bronx</span></div>
+            <div class="kpi"><b>$160</b><span>median night, entire home</span></div>
+          </div>
+          <p class="data"><strong>Data:</strong> NYC Airbnb Open Data, via Kaggle — 48,895 listings, 2019 snapshot. Reviews per month is a demand proxy, not bookings, and the data has no seasonality.</p>
+          <div class="tools"><span class="tool">Python</span><span class="tool">pandas</span><span class="tool">SQL</span></div>
+          <p class="rec"><strong>What I'd recommend:</strong> price by borough and room type, not by a citywide average. Manhattan costs 2.3× the Bronx, and an entire home costs 2.3× a private room — that gap is the story.</p>
+          <div class="case-links"><a href="https://github.com/CodeWithLuma/nyc-airbnb-pricing-analysis" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Compare the work -->
+    <section aria-labelledby="compare-h">
+      <div class="section-head">
+        <h2 id="compare-h">Compare the work</h2>
+        <p>Question · data · tool · result</p>
+      </div>
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr><th>Project</th><th>Business question</th><th>Data</th><th>Tools</th><th>Headline result</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Telco churn</strong></td><td>Why do customers leave?</td><td>IBM Telco, 7,043 customers</td><td>Python, SQL</td><td>Month-to-month churn 42.7% vs 2.8% on two-year contracts</td></tr>
+            <tr><td><strong>NYC yellow taxi</strong></td><td>When is demand highest, and what does a ride cost?</td><td>NYC TLC, 41.1M trips in 2024</td><td>Python, SQL</td><td>Trips +19% vs 2023; $966M farebox</td></tr>
+            <tr><td><strong>Credit card fraud</strong></td><td>How do you spot fraud in 0.17% of transactions?</td><td>Worldline/ULB, 284,807 txns</td><td>Python, scikit-learn, SQL</td><td>492 frauds; accuracy is a trap at 99.83%</td></tr>
+            <tr><td><strong>HR attrition</strong></td><td>Why do employees leave?</td><td>IBM HR Analytics, 1,470 employees</td><td>Python, SQL</td><td>Leavers earned $4,787 vs $6,832 for stayers</td></tr>
+            <tr><td><strong>NYC Airbnb pricing</strong></td><td>What sets the price of a night?</td><td>NYC Airbnb, 48,895 listings</td><td>Python, SQL</td><td>Manhattan median $149 vs $65 in the Bronx</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Flagship work -->
+    <section aria-labelledby="flagship-h">
+      <div class="section-head">
+        <h2 id="flagship-h">Flagship work — JEEVIKA &amp; Rider</h2>
+        <p>Dashboards people actually used</p>
+      </div>
+      <div class="flag-grid">
+        <article class="flag">
+          <div class="flag-num">JEEVIKA</div>
           <h3>Health Analytics Dashboard</h3>
-          <div class="tools"><span class="tool">Power BI</span><span class="tool">Python</span></div>
-          <p>Built dashboards tracking <strong>maternal and newborn health</strong> across JEEVIKA programs, helping field teams target support where it was needed most.</p>
+          <p><strong>Question:</strong> where should field teams focus maternal and newborn health support?</p>
+          <p>Dashboards tracking health across JEEVIKA programs, built in <strong>Power BI and Python</strong>. Field teams used them to target support where it was needed most.</p>
+          <p><strong>Result:</strong> malnutrition down 25% for 10,000+ beneficiaries.</p>
+          <p class="rec"><strong>What I'd recommend:</strong> keep the focus on the districts with the highest need — the dashboard shows where, not just how much.</p>
         </article>
-
-        <article class="project">
-          <div class="project-num">02 — JEEVIKA</div>
+        <article class="flag">
+          <div class="flag-num">JEEVIKA</div>
           <h3>Microfinance Risk Dashboard</h3>
-          <div class="tools"><span class="tool">Power BI</span><span class="tool">SQL</span><span class="tool">Python</span></div>
-          <p>Built dashboards flagging <strong>early repayment risks</strong> across a large Self-Help Group portfolio, with automated reporting for managers and field teams.</p>
+          <p><strong>Question:</strong> which Self-Help Groups are at repayment risk before they default?</p>
+          <p>Dashboards flagging early repayment risks across a large Self-Help Group portfolio, in <strong>Power BI, SQL, and Python</strong>, with automated reporting for managers and field teams.</p>
+          <p><strong>Result:</strong> loan defaults down 15% across a 133+ crore portfolio.</p>
+          <p class="rec"><strong>What I'd recommend:</strong> act on the early flags, not the defaults — outreach to a flagged group costs far less than recovering a bad loan.</p>
         </article>
-
-        <article class="project">
-          <div class="project-num">03 — RIDER UNIVERSITY</div>
-          <h3>Business Intelligence Course Project <span>Rider University</span></h3>
-          <div class="tools"><span class="tool">Python</span><span class="tool">SQL</span><span class="tool">Power BI</span></div>
-          <p>Course project in <strong>Business Intelligence Tech–Data Mining</strong>: cleaned and modeled datasets and built dashboards to surface patterns for decision-making.</p>
+        <article class="flag">
+          <div class="flag-num">RIDER UNIVERSITY</div>
+          <h3>Business Intelligence Course Project</h3>
+          <p><strong>Question:</strong> what really drives profit in a retail business?</p>
+          <p>Course project in Business Intelligence Tech–Data Mining: cleaned and modeled datasets and built dashboards in <strong>Python, SQL, and Power BI</strong> to surface patterns for decision-making.</p>
+          <p><strong>Result:</strong> Technology drove 36.4% of sales — and discounts over 20% turned profit negative.</p>
+          <p class="rec"><strong>What I'd recommend:</strong> cap discounts at 20% and protect the Technology margin — that is where the profit lives.</p>
         </article>
       </div>
     </section>
@@ -354,7 +546,7 @@
     <section aria-labelledby="exp-h">
       <div class="section-head">
         <h2 id="exp-h">Experience</h2>
-        <p>3 years in data analysis</p>
+        <p id="experience-h">3 years in data analysis</p>
       </div>
       <div class="exp-card">
         <div class="exp-main">
@@ -374,20 +566,22 @@
           </div>
 
           <ul class="exp-bullets">
-            <li>Worked with 3,500+ Self-Help Groups; built Power BI dashboards.</li>
-            <li>Loan defaults down 15%.</li>
-            <li>Malnutrition down 25% for 10,000+ beneficiaries.</li>
+            <li>Led data analytics supporting 3,500+ Self-Help Groups and a 133+ crore portfolio across rural entrepreneurship programs.</li>
+            <li>Created Power BI dashboards identifying 150+ micro-business opportunities across multiple districts.</li>
+            <li>Enabled financing for 120+ rural entrepreneurs, contributing to income growth for 500+ households.</li>
+            <li>Designed health analytics dashboards for maternal and newborn health programs, improving healthcare access for 10,000+ beneficiaries and reducing malnutrition by 25%.</li>
+            <li>Automated reporting and performance tracking, improving operational efficiency and reducing loan default rates by 15%.</li>
           </ul>
         </div>
 
         <div class="exp-other">
           <div>
             <h4>Data Analytics Intern — Samavit Vikas</h4>
-            <p class="d">Apr – Jun 2020</p>
+            <p class="d">Apr – Jun 2020 · Analyzed the impact of COVID-19 on India's microfinance sector using Python and SQL.</p>
           </div>
           <div>
             <h4>Data Intern — Enventure</h4>
-            <p class="d">Nov 2017 – Jan 2018</p>
+            <p class="d">Nov 2017 – Jan 2018 · Cleaned and reported data for 15 engineering projects; data accuracy up 20%, efficiency up 10%.</p>
           </div>
         </div>
       </div>
@@ -397,7 +591,7 @@
     <section aria-labelledby="edu-h">
       <div class="section-head">
         <h2 id="edu-h">Education</h2>
-        <p>Rider University · IIM Udaipur · IIFM · BHU</p>
+        <p id="education-h">Rider University · IIM Udaipur · IIFM · BHU</p>
       </div>
       <div class="edu-grid">
         <div class="edu-main">
@@ -447,6 +641,10 @@
         <a href="tel:+15513577045">+1 551-357-7045</a>
         <span aria-hidden="true">·</span>
         <a href="https://www.linkedin.com/in/lovely-kumari-b23740102" target="_blank" rel="noopener">LinkedIn</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/CodeWithLuma" target="_blank" rel="noopener">GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href="resume.html">My resume ↓</a>
       </div>
     </div>
     <div class="fine">
