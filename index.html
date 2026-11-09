@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light" />
+<meta name="description" content="Portfolio of Lovely Kumari, Data Analyst — Power BI dashboards and automated reports in Python, SQL, and Tableau." />
+<link rel="icon" href="data:," />
+<title>Lovely Kumari — Data Analyst Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f7f6;
+    --surface:#ffffff;
+    --ink:#182420;
+    --ink-2:#2f3e38;
+    --muted:#65736d;
+    --line:#dde3df;
+    --line-strong:#cbd5cf;
+    --accent:#0f6b5c;
+    --accent-dark:#0a4f43;
+    --accent-soft:#e8f1ee;
+    --accent-soft-2:#f0f6f3;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"IBM Plex Sans", system-ui, -apple-system, Segoe UI, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-dark); text-decoration-color:rgba(15,107,92,.35); text-underline-offset:3px}
+  a:hover{color:var(--accent); text-decoration-color:var(--accent)}
+  ::selection{background:#cfe8e0; color:#0a2e28}
+
+  .wrap{max-width:920px; margin:0 auto; padding:0 20px 56px}
+
+  /* Top rule */
+  .top-rule{height:4px; background:var(--accent)}
+
+  /* Header */
+  header{padding:44px 0 28px}
+  .header-top{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:20px}
+  .name-block{min-width:0}
+  h1{
+    font-family:"IBM Plex Serif", Georgia, serif;
+    font-weight:600;
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    line-height:0.95;
+    letter-spacing:-0.02em;
+    margin:0;
+    color:var(--ink);
+  }
+  .role{
+    margin:12px 0 0;
+    font-size:1.18rem;
+    font-weight:600;
+    color:var(--accent-dark);
+    letter-spacing:0.01em;
+  }
+  .role span{color:var(--muted); font-weight:400}
+  .availability{
+    flex-shrink:0;
+    margin-top:6px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:8px 14px 8px 10px;
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.86rem; font-weight:500; color:var(--ink-2);
+    box-shadow:0 1px 2px rgba(0,0,0,.04);
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft); flex-shrink:0}
+
+  .contact-bar{
+    margin-top:26px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:14px 16px;
+    display:flex; flex-wrap:wrap; gap:10px 22px;
+    align-items:center;
+  }
+  .contact-item{display:inline-flex; align-items:center; gap:8px; font-size:0.92rem; color:var(--ink-2); white-space:nowrap}
+  .contact-item svg{width:16px;height:16px; flex-shrink:0; color:var(--accent)}
+  .contact-item a{font-weight:500; text-decoration:none; color:var(--ink-2)}
+  .contact-item a:hover{color:var(--accent-dark); text-decoration:underline}
+  .contact-sep{width:1px; height:18px; background:var(--line); display:none}
+  @media(min-width:720px){ .contact-sep{display:block} }
+
+  .intro{
+    margin-top:22px;
+    display:grid; grid-template-columns:1fr; gap:18px;
+  }
+  @media(min-width:760px){ .intro{grid-template-columns:1.65fr 0.95fr} }
+  .about-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px 22px 20px;
+  }
+  .about-card p{margin:0; font-size:1.02rem; line-height:1.65; color:var(--ink-2)}
+  .about-card p + p{margin-top:12px}
+  .about-card strong{color:var(--ink); font-weight:600}
+  .fact-card{
+    background:var(--accent-dark); color:#eaf4f0; border-radius:var(--radius);
+    padding:22px;
+    display:flex; flex-direction:column; justify-content:space-between; gap:18px;
+  }
+  .fact-card .label{font-family:"IBM Plex Mono", monospace; font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:#9fc8bc; margin:0}
+  .fact-card .big{font-family:"IBM Plex Serif", serif; font-size:1.35rem; line-height:1.25; margin:6px 0 0; font-weight:500}
+  .fact-card .small{font-size:0.9rem; line-height:1.55; color:#cfe6de; margin:8px 0 0}
+  .fact-actions{display:flex; gap:10px; flex-wrap:wrap}
+  .btn{
+    display:inline-flex; align-items:center; gap:7px;
+    padding:9px 14px; border-radius:999px; font-size:0.88rem; font-weight:600; text-decoration:none; line-height:1;
+  }
+  .btn-light{background:#fff; color:var(--accent-dark); border:1px solid #fff}
+  .btn-light:hover{background:var(--accent-soft); color:var(--accent-dark)}
+  .btn-ghost{background:transparent; color:#fff; border:1px solid rgba(255,255,255,.45)}
+  .btn-ghost:hover{background:rgba(255,255,255,.1); color:#fff}
+
+  /* Sections */
+  section{margin-top:38px}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:16px}
+  .section-head h2{
+    font-family:"IBM Plex Serif", serif; font-size:1.45rem; font-weight:600; letter-spacing:-0.01em; margin:0; color:var(--ink);
+    display:flex; align-items:center; gap:12px;
+  }
+  .section-head h2::before{content:""; width:28px; height:3px; background:var(--accent); border-radius:999px; display:inline-block; flex-shrink:0}
+  .section-head p{margin:0; font-size:0.88rem; color:var(--muted); text-align:right}
+
+  /* Skills */
+  .skills-card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px}
+  .skills-grid{display:flex; flex-wrap:wrap; gap:9px}
+  .skill{
+    display:inline-flex; align-items:center; gap:7px;
+    background:var(--accent-soft-2); border:1px solid var(--line);
+    padding:8px 12px; border-radius:999px; font-size:0.92rem; font-weight:500; color:var(--ink-2);
+  }
+  .skill.primary{background:var(--accent-soft); border-color:#c8ddd6; color:var(--accent-dark); font-weight:600}
+  .skill .mono{font-family:"IBM Plex Mono", monospace; font-size:0.78rem; color:var(--muted); font-weight:400}
+  .skills-note{margin:14px 2px 0; font-size:0.9rem; color:var(--muted); line-height:1.55}
+  .skills-note strong{color:var(--ink-2)}
+
+  /* Projects */
+  .projects{display:grid; grid-template-columns:1fr; gap:14px}
+  @media(min-width:760px){ .projects{grid-template-columns:1fr 1fr 1fr} }
+  .project{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px; display:flex; flex-direction:column; gap:10px;
+    position:relative; overflow:hidden;
+  }
+  .project::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--accent); opacity:0.9}
+  .project-num{font-family:"IBM Plex Mono", monospace; font-size:0.75rem; letter-spacing:0.12em; color:var(--accent); font-weight:600}
+  .project h3{margin:0; font-size:1.05rem; line-height:1.3; font-weight:600; color:var(--ink)}
+  .project h3 span{display:block; font-size:0.86rem; font-weight:500; color:var(--muted); margin-top:3px}
+  .tools{display:flex; flex-wrap:wrap; gap:6px; margin-top:2px}
+  .tool{font-family:"IBM Plex Mono", monospace; font-size:0.72rem; letter-spacing:0.02em; background:#f1f4f1; border:1px solid var(--line); padding:4px 7px; border-radius:999px; color:var(--ink-2)}
+  .project p{margin:0; font-size:0.93rem; line-height:1.6; color:var(--muted)}
+  .project p strong{color:var(--ink-2)}
+  .project-link{margin-top:auto; padding-top:6px; display:inline-flex; align-items:center; gap:6px; font-size:0.9rem; font-weight:600; color:var(--accent-dark); text-decoration:none}
+  .project-link:hover{color:var(--accent); text-decoration:underline; text-underline-offset:3px}
+  .project-link .arrow{font-size:0.85rem; line-height:1}
+
+  /* Experience */
+  .exp-card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden}
+  .exp-main{padding:22px}
+  .exp-head{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 16px; align-items:flex-start}
+  .exp-head h3{margin:0; font-size:1.12rem; font-weight:600; line-height:1.3}
+  .exp-head h3 span{color:var(--accent-dark)}
+  .exp-org{margin:3px 0 0; font-size:0.94rem; color:var(--muted)}
+  .date{font-family:"IBM Plex Mono", monospace; font-size:0.82rem; color:var(--ink-2); background:var(--accent-soft-2); border:1px solid var(--line); padding:6px 9px; border-radius:999px; white-space:nowrap}
+  .stats{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:18px -22px 0}
+  @media(min-width:700px){ .stats{grid-template-columns:repeat(4,1fr)} }
+  .stat{background:var(--surface); padding:16px 18px}
+  .stat b{display:block; font-family:"IBM Plex Serif", serif; font-size:1.55rem; line-height:1; font-weight:600; color:var(--ink)}
+  .stat b em{font-style:normal; color:var(--accent)}
+  .stat span{display:block; margin-top:6px; font-size:0.84rem; line-height:1.4; color:var(--muted)}
+  .exp-bullets{margin:16px 0 0; padding:0; list-style:none; display:grid; gap:9px}
+  .exp-bullets li{padding-left:20px; position:relative; font-size:0.96rem; color:var(--ink-2); line-height:1.55}
+  .exp-bullets li::before{content:""; position:absolute; left:2px; top:9px; width:7px; height:7px; border-radius:50%; background:var(--accent)}
+  .exp-other{border-top:1px solid var(--line); display:grid; grid-template-columns:1fr}
+  @media(min-width:640px){ .exp-other{grid-template-columns:1fr 1fr} .exp-other > div + div{border-left:1px solid var(--line)} }
+  .exp-other > div{padding:16px 22px}
+  .exp-other h4{margin:0; font-size:0.96rem; font-weight:600}
+  .exp-other p{margin:3px 0 0; font-size:0.88rem; color:var(--muted)}
+  .exp-other .d{font-family:"IBM Plex Mono", monospace; font-size:0.78rem; color:var(--muted)}
+
+  /* Education */
+  .edu-grid{display:grid; grid-template-columns:1fr; gap:14px}
+  @media(min-width:760px){ .edu-grid{grid-template-columns:1.35fr 0.9fr} }
+  .edu-main{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px}
+  .edu-main h3{margin:0; font-size:1.08rem; font-weight:600; line-height:1.35}
+  .edu-main h3 span{color:var(--accent-dark)}
+  .edu-meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+  .pill{font-size:0.84rem; font-weight:500; background:var(--accent-soft); color:var(--accent-dark); padding:6px 10px; border-radius:999px; border:1px solid #d3e6e0}
+  .pill.neutral{background:#f4f5f4; color:var(--ink-2); border-color:var(--line)}
+  .course-label{margin:18px 0 8px; font-family:"IBM Plex Mono", monospace; font-size:0.72rem; letter-spacing:0.13em; text-transform:uppercase; color:var(--muted)}
+  .courses{margin:0; padding:0; list-style:none; display:grid; grid-template-columns:1fr; gap:7px}
+  @media(min-width:520px){ .courses{grid-template-columns:1fr 1fr} }
+  .courses li{font-size:0.9rem; color:var(--ink-2); padding-left:16px; position:relative; line-height:1.45}
+  .courses li::before{content:"—"; position:absolute; left:0; color:var(--accent); font-weight:600}
+  .edu-side{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px}
+  .edu-side h3{margin:0 0 14px; font-size:0.95rem; font-weight:600}
+  .cred{padding:12px 0; border-top:1px solid var(--line)}
+  .cred:first-of-type{border-top:0; padding-top:0}
+  .cred b{display:block; font-size:0.93rem; font-weight:600; line-height:1.4}
+  .cred span{display:block; font-size:0.88rem; color:var(--muted); margin-top:2px; line-height:1.45}
+
+  /* Footer */
+  footer{margin-top:42px; background:var(--ink); color:#dbe7e1; border-radius:16px; padding:24px 22px}
+  .footer-inner{display:flex; flex-wrap:wrap; justify-content:space-between; gap:18px; align-items:center}
+  footer .f-name{font-family:"IBM Plex Serif", serif; font-size:1.25rem; color:#fff; margin:0; font-weight:600}
+  footer .f-role{margin:2px 0 0; font-size:0.9rem; color:#a8c2b8}
+  .f-contacts{display:flex; flex-wrap:wrap; gap:10px 18px; font-size:0.9rem}
+  .f-contacts a{color:#fff; text-decoration:none; font-weight:500}
+  .f-contacts a:hover{text-decoration:underline}
+  .f-contacts span{color:#c8ddd4}
+  .fine{margin-top:18px; padding-top:14px; border-top:1px solid rgba(255,255,255,.14); font-size:0.82rem; color:#8aa79b; display:flex; flex-wrap:wrap; gap:6px 14px; justify-content:space-between}
+
+  @media(max-width:560px){
+    .wrap{padding:0 14px 36px}
+    header{padding-top:30px}
+    .contact-bar{padding:12px 14px}
+    .contact-item{white-space:normal}
+    .about-card,.fact-card,.exp-main,.edu-main,.edu-side{padding:18px}
+    .stats{margin-left:-18px; margin-right:-18px}
+    .exp-other > div{padding:14px 18px}
+    footer{padding:20px 18px}
+    .section-head{flex-direction:column; align-items:flex-start; gap:4px}
+    .section-head p{text-align:left}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{max-width:100%; padding:0}
+    .fact-card,.btn{ -webkit-print-color-adjust:exact; print-color-adjust:exact }
+    a{text-decoration:none; color:inherit}
+  }
+</style>
+</head>
+<body>
+<div class="top-rule" aria-hidden="true"></div>
+<div class="wrap">
+
+  <header>
+    <div class="header-top">
+      <div class="name-block">
+        <h1>Lovely Kumari</h1>
+        <p class="role">Data Analyst <span>— Power BI · Python · SQL · Tableau</span></p>
+      </div>
+      <div class="availability"><span class="dot" aria-hidden="true"></span> Authorized to work in the U.S. on F-1 OPT (EAD)</div>
+    </div>
+
+    <div class="contact-bar" aria-label="Contact information">
+      <span class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Jersey City, NJ
+      </span>
+      <span class="contact-sep" aria-hidden="true"></span>
+      <span class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <a href="mailto:lovelyheliwal27@gmail.com">lovelyheliwal27@gmail.com</a>
+      </span>
+      <span class="contact-sep" aria-hidden="true"></span>
+      <span class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+        <a href="tel:+15513577045">+1 551-357-7045</a>
+      </span>
+      <span class="contact-sep" aria-hidden="true"></span>
+      <span class="contact-item">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.6H4V20h2.9V8.6ZM5.4 7.2a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4ZM10 20h2.9v-5.7c0-.3 0-.6.2-.8.2-.3.5-.5 1-.5.7 0 1 .4 1 1.3V20h2.9v-6.1c0-2.3-1.2-3.4-3-3.4-1.4 0-2 .8-2.4 1.3V8.6H10V20Z"/></svg>
+        <a href="https://www.linkedin.com/in/lovely-kumari-b23740102" target="_blank" rel="noopener">linkedin.com/in/lovely-kumari-b23740102</a>
+      </span>
+    </div>
+
+    <div class="intro">
+      <div class="about-card">
+        <p>Data Analyst with <strong>3 years at JEEVIKA</strong>; M.S. in Computer and Information Systems from <strong>Rider University (GPA 3.9/4)</strong>. I build Power BI dashboards and automated reports in Python, SQL, and Tableau that turn program data into clear decisions for managers and field teams.</p>
+        <p>Authorized to work in the U.S. immediately on F-1 OPT (EAD).</p>
+      </div>
+      <div class="fact-card">
+        <div>
+          <p class="label">At a glance — JEEVIKA</p>
+          <p class="big">3,500+ Self-Help Groups · 10,000+ beneficiaries</p>
+          <p class="small">Power BI dashboards at JEEVIKA — loan defaults down 15%; malnutrition down 25% for 10,000+ beneficiaries.</p>
+        </div>
+        <div class="fact-actions">
+          <a class="btn btn-light" href="mailto:lovelyheliwal27@gmail.com">Email me</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/lovely-kumari-b23740102" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Skills -->
+    <section aria-labelledby="skills-h">
+      <div class="section-head">
+        <h2 id="skills-h">Skills</h2>
+        <p>Python · SQL · Power BI · Tableau</p>
+      </div>
+      <div class="skills-card">
+        <div class="skills-grid">
+          <span class="skill primary">Python <span class="mono">pandas · NumPy</span></span>
+          <span class="skill primary">SQL</span>
+          <span class="skill primary">Power BI</span>
+          <span class="skill primary">Tableau</span>
+          <span class="skill">Advanced Excel</span>
+          <span class="skill">ETL</span>
+          <span class="skill">SPSS</span>
+          <span class="skill">Data cleaning</span>
+          <span class="skill">Dashboard design</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section aria-labelledby="projects-h">
+      <div class="section-head">
+        <h2 id="projects-h">Projects</h2>
+        <p>Selected work</p>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <div class="project-num">01 — JEEVIKA</div>
+          <h3>Health Analytics Dashboard</h3>
+          <div class="tools"><span class="tool">Power BI</span><span class="tool">Python</span></div>
+          <p>Built dashboards tracking <strong>maternal and newborn health</strong> across JEEVIKA programs, helping field teams target support where it was needed most.</p>
+        </article>
+
+        <article class="project">
+          <div class="project-num">02 — JEEVIKA</div>
+          <h3>Microfinance Risk Dashboard</h3>
+          <div class="tools"><span class="tool">Power BI</span><span class="tool">SQL</span><span class="tool">Python</span></div>
+          <p>Built dashboards flagging <strong>early repayment risks</strong> across a large Self-Help Group portfolio, with automated reporting for managers and field teams.</p>
+        </article>
+
+        <article class="project">
+          <div class="project-num">03 — RIDER UNIVERSITY</div>
+          <h3>Business Intelligence Course Project <span>Rider University</span></h3>
+          <div class="tools"><span class="tool">Python</span><span class="tool">SQL</span><span class="tool">Power BI</span></div>
+          <p>Course project in <strong>Business Intelligence Tech–Data Mining</strong>: cleaned and modeled datasets and built dashboards to surface patterns for decision-making.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section aria-labelledby="exp-h">
+      <div class="section-head">
+        <h2 id="exp-h">Experience</h2>
+        <p>3 years in data analysis</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-main">
+          <div class="exp-head">
+            <div>
+              <h3>Data Analyst — <span>JEEVIKA</span></h3>
+              <p class="exp-org">Bihar Rural Livelihoods Promotion Society · India</p>
+            </div>
+            <span class="date">Jul 2021 – Jun 2024</span>
+          </div>
+
+          <div class="stats" aria-label="Impact at JEEVIKA">
+            <div class="stat"><b>3,500<em>+</em></b><span>Self-Help Groups worked with</span></div>
+            <div class="stat"><b>15<em>%</em></b><span>reduction in loan defaults</span></div>
+            <div class="stat"><b>25<em>%</em></b><span>reduction in malnutrition</span></div>
+            <div class="stat"><b>10,000<em>+</em></b><span>beneficiaries reached</span></div>
+          </div>
+
+          <ul class="exp-bullets">
+            <li>Worked with 3,500+ Self-Help Groups; built Power BI dashboards.</li>
+            <li>Loan defaults down 15%.</li>
+            <li>Malnutrition down 25% for 10,000+ beneficiaries.</li>
+          </ul>
+        </div>
+
+        <div class="exp-other">
+          <div>
+            <h4>Data Analytics Intern — Samavit Vikas</h4>
+            <p class="d">Apr – Jun 2020</p>
+          </div>
+          <div>
+            <h4>Data Intern — Enventure</h4>
+            <p class="d">Nov 2017 – Jan 2018</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section aria-labelledby="edu-h">
+      <div class="section-head">
+        <h2 id="edu-h">Education</h2>
+        <p>Rider University · IIM Udaipur · IIFM · BHU</p>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-main">
+          <h3>M.S., Computer and Information Systems — <span>Rider University</span></h3>
+          <div class="edu-meta">
+            <span class="pill">GPA 3.9/4</span>
+            <span class="pill neutral">Jan 2025 – May 2026</span>
+          </div>
+          <p class="course-label">Relevant coursework</p>
+          <ul class="courses">
+            <li>Principles of Risk Management</li>
+            <li>Business Intelligence Tech–Data Mining</li>
+            <li>Visual Analytics</li>
+            <li>Operations &amp; Supply Chain Management</li>
+            <li>Project Management</li>
+            <li>Business Analysis and Design</li>
+          </ul>
+        </div>
+        <div class="edu-side">
+          <h3>Also completed</h3>
+          <div class="cred">
+            <b>Advanced Certificate in Business &amp; Data Analytics</b>
+            <span>IIM Udaipur</span>
+          </div>
+          <div class="cred">
+            <b>PGDFM</b>
+            <span>IIFM</span>
+          </div>
+          <div class="cred">
+            <b>B.Sc. (Hons) Chemistry</b>
+            <span>Banaras Hindu University</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p class="f-name">Lovely Kumari</p>
+        <p class="f-role">Data Analyst — Jersey City, NJ</p>
+      </div>
+      <div class="f-contacts">
+        <a href="mailto:lovelyheliwal27@gmail.com">lovelyheliwal27@gmail.com</a>
+        <span aria-hidden="true">·</span>
+        <a href="tel:+15513577045">+1 551-357-7045</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/lovely-kumari-b23740102" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="fine">
+      <span>Jersey City, NJ</span>
+      <span>Authorized to work in the U.S. immediately on F-1 OPT (EAD)</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
